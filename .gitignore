@@ -5,4 +5,5 @@ env/
 __pycache__/
 *.py[cod]
 *$py.class
-/store/settings.py
+db.sqlite3
+.env
