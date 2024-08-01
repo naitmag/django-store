@@ -48,7 +48,11 @@
     {% for product in goods %}
     <div class="col-lg-4 col-md-6 p-4">
         <div class="card border-primary rounded custom-shadow">
-            <img src="{%static product.image %}" alt="...">
+            {% if product.image %}
+            <img src="{{product.image.url}}" alt="{{product.name}}">
+            {% else %}
+            <img src="{% static "deps/images/Not found image.png" %}" alt="...">
+            {% endif %}
             <div class="card-body">
                 <a href="../goods/product.html">
                     <p class="card-title">{{ product.name }}</p>
