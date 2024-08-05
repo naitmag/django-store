@@ -1,11 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpRequest
 
-from goods.models import Categories, Products
+from goods.models import Products
 
 
 def index(request: HttpRequest) -> HttpResponse:
-    categories = Categories.objects.all()
     goods = Products.objects.all()
 
     context = {
