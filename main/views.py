@@ -11,7 +11,6 @@ def index(request: HttpRequest) -> HttpResponse:
     context = {
         'title': 'Home - Главная',
         'content': 'Магазин мебели HOME',
-        'categories': categories,
         'goods': goods
     }
 

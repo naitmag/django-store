@@ -8,7 +8,6 @@ def catalog(request):
 
     context = {
         'title': 'Home - Каталог',
-        'categories': categories,
         'goods': goods
     }
 
