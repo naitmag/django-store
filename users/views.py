@@ -17,7 +17,7 @@ def registration(request):
 
 def profile(request):
     context = {
-        'title': 'Home - Регистрация'
+        'title': 'Home - Личный кабинет'
     }
     return render(request, 'users/profile.html', context)
 
