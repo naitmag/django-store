@@ -8,7 +8,7 @@ def query_search(query: str):
     if query.isdigit() and len(query) < 5:
         return Products.objects.filter(id=int(query))
 
-    vector = SearchVector('name', 'description')
+    vector = SearchVector('name', 'description', config="russian")
     query = SearchQuery(query)
     result = Products.objects.annotate(rank=SearchRank(vector, query)).filter(rank__gt=0).order_by("-rank")
 
