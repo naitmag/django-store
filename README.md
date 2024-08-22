@@ -17,6 +17,7 @@ README Language
 2. [Screenshots](#Screenshots)
 3. [Functions](#Functions)
 4. [Installation](#Installation)
+5. [Author](#author-clickable)
 
 ### Technologies:
 
