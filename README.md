@@ -10,6 +10,7 @@ README Language
 ![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white)
 ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
 ![Redis](https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white)
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 
 ### Content:
 
@@ -24,6 +25,7 @@ README Language
 - **Python**
 - **Django**
 - **PostgreSQL**
+- **Docker**
 - ~~SQLite~~
 - Redis *(coming soon)*
 
@@ -37,12 +39,12 @@ README Language
 - **Profile page** ![naitmag/django-store](https://i.imgur.com/e9tZmqM.png)
 
 ### Functions:
-- **Goods catalog**
-- **Goods search**
-- **Goods filter**
+- **Product catalog**
+- **Product search**
+- **Product filter**
 - **User authorization**
-- **Goods cart**
-- **Goods ordering**
+- **Product cart**
+- **Product ordering**
 - **Admin panel**
 
 
@@ -50,31 +52,30 @@ README Language
 
 - **Creating a virtual environment**
 
-
-    `python3 -m venv venv`
+`python3 -m venv venv`
 
 - **Activating the virtual environment**
 
   - **Linux**:
-  
-        `source venv/bin/activate`
+ 
+    `source venv/bin/activate`
+
   - **Windows**:
   
-        `venv\Scripts\activate`
+    `venv\Scripts\activate`
+
+
 - **Installing requirements**
 
-
-    `pip install -r requirements.txt`
+`pip install -r requirements.txt`
 
 - **Applying migrations**
 
-
-    `python manage.py migrate`
+`python manage.py migrate`
 
 - **Starting the server**
-
-
-    `python manage.py runserver`
+  
+`python manage.py runserver`
 
 ### Author *(clickable)*:
 

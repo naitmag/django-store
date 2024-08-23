@@ -10,6 +10,7 @@
 ![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white)
 ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
 ![Redis](https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white)
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 
 ### Оглавление:
 
@@ -24,6 +25,7 @@
 - **Python**
 - **Django**
 - **PostgreSQL**
+- **Docker**
 - ~~SQLite~~
 - Redis *(скоро)*
 
@@ -50,31 +52,29 @@
 
 - **Создание виртуального окружения**
 
-
-    `python3 -m venv venv`
+`python3 -m venv venv`
 
 - **Активация виртуального окружения**
 
   - **Linux**:
   
-        `source venv/bin/activate`
+    `source venv/bin/activate`
   - **Windows**:
+
+    `venv\Scripts\activate`
   
-        `venv\Scripts\activate`
+
 - **Установка зависимостей**
 
-
-    `pip install -r requirements.txt`
+`pip install -r requirements.txt`
 
 - **Применение миграций**
 
-
-    `python manage.py migrate`
+`python manage.py migrate`
 
 - **Запуск сервера**
 
-
-    `python manage.py runserver`
+`python manage.py runserver`
 
 ### Автор *(кликабельно)*:
 [![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/naitmag)
