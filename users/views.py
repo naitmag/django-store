@@ -4,6 +4,8 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
 
+from carts.models import Cart
+from carts.utils import get_user_carts
 from users.forms import UserLoginForm, UserRegistrationForm, ProfileForm
 
 
@@ -14,11 +16,17 @@ def login(request):
             username = request.POST['username']
             password = request.POST['password']
             user = auth.authenticate(username=username, password=password)
+
+            session_key = request.session.session_key
+
             if user:
                 auth.login(request, user)
                 messages.success(request, "Успешная авторизация на сайте!")
 
-                redirect_page= request.POST.get('next', None)
+                if session_key:
+                    Cart.objects.filter(session_key=session_key).update(user=user)
+
+                redirect_page = request.POST.get('next', None)
                 if redirect_page and redirect_page != reverse('user:logout'):
                     return HttpResponseRedirect(request.POST.get('next'))
                 return HttpResponseRedirect(reverse('main:index'))
@@ -37,8 +45,15 @@ def registration(request):
         form = UserRegistrationForm(data=request.POST)
         if form.is_valid():
             form.save()
+
+            session_key = request.session.session_key
+
             user = form.instance
             auth.login(request, user)
+
+            if session_key:
+                Cart.objects.filter(session_key=session_key).update(user=user)
+
             messages.success(request, "Успешная регистрация! Вы вошли на сайт.")
             return HttpResponseRedirect(reverse('main:index'))
     else:
@@ -49,6 +64,7 @@ def registration(request):
         'form': form,
     }
     return render(request, 'users/registration.html', context)
+
 
 @login_required
 def profile(request):
@@ -67,13 +83,13 @@ def profile(request):
     }
     return render(request, 'users/profile.html', context)
 
+
 def users_cart(request):
     return render(request, 'users/users-cart.html')
+
 
 @login_required
 def logout(request):
     messages.success(request, "Вы вышли из аккаунта.")
     auth.logout(request)
     return redirect(reverse('main:index'))
-
-
