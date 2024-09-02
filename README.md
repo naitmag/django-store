@@ -12,6 +12,9 @@ README Language
 ![Redis](https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white)
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 
+![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
+![jQuery](https://img.shields.io/badge/jquery-%230769AD.svg?style=for-the-badge&logo=jquery&logoColor=white)
+
 ### Content:
 
 1. [Technologies](#Technologies)
@@ -28,6 +31,8 @@ README Language
 - **Docker**
 - ~~SQLite~~
 - Redis *(coming soon)*
+- Bootstrap
+- Jquery
 
 ### Screenshots:
 - **Catalog page** ![naitmag/django-store](https://i.imgur.com/jB7dqSV.png) 
@@ -102,6 +107,9 @@ README Language
 ![Redis](https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white)
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 
+![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
+![jQuery](https://img.shields.io/badge/jquery-%230769AD.svg?style=for-the-badge&logo=jquery&logoColor=white)
+
 ### Оглавление:
 
 1. [Технологии](#Технологии)
@@ -118,6 +126,8 @@ README Language
 - **Docker**
 - ~~SQLite~~
 - Redis *(скоро)*
+- Bootstrap
+- Jquery
 
 ### Скриншоты:
 - **Страница каталога** ![naitmag/django-store](https://i.imgur.com/jB7dqSV.png) 
