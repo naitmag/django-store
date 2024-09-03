@@ -20,7 +20,6 @@ class CreateOrderForm(forms.Form):
         table = str.maketrans('', '', allowed_chars)
 
         data = data.translate(table)
-        print(data)
 
         if not data.isdigit():
             raise forms.ValidationError('Номер телефона должен содержать только цифры')
