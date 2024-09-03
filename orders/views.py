@@ -11,7 +11,6 @@ from orders.models import Order, OrderItem
 
 @login_required
 def create_order(request):
-
     if request.method == 'POST':
         form = CreateOrderForm(data=request.POST)
         if form.is_valid():
