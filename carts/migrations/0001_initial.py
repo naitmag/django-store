@@ -4,7 +4,7 @@ import django.db.models.deletion
 from django.conf import settings
 from django.db import migrations, models
 
-
+# TODO strings config
 class Migration(migrations.Migration):
 
     initial = True

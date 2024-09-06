@@ -6,6 +6,7 @@ from carts.utils import get_user_carts
 from goods.models import Products
 
 
+# TODO strings config
 def cart_add(request):
     product_id = request.POST.get("product_id")
 
@@ -70,6 +71,7 @@ def cart_change(request):
     return JsonResponse(response_data)
 
 
+# TODO strings config
 def cart_remove(request):
     cart_id = request.POST.get('cart_id')
 
