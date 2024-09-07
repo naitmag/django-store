@@ -1,6 +1,7 @@
 from django.views.generic import TemplateView
 
 
+# TODO strings config
 class IndexView(TemplateView):
     template_name = 'main/index.html'
 
@@ -10,18 +11,7 @@ class IndexView(TemplateView):
         context['content'] = 'Магазин мебели HOME'
         return context
 
-
-# def index(request: HttpRequest) -> HttpResponse:
-#     goods = Products.objects.all()
-#
-#     context = {
-#         'title': 'Home - Главная',
-#         'content': 'Магазин мебели HOME',
-#         'goods': goods
-#     }
-#
-#     return render(request, 'main/index.html', context)
-
+# TODO strings config
 class AboutView(TemplateView):
     template_name = 'main/about.html'
 
