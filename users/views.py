@@ -1,11 +1,12 @@
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.db.models import Prefetch
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect
 from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, UpdateView, TemplateView
 
 from carts.models import Cart
 from orders.models import Order, OrderItem
@@ -47,6 +48,7 @@ class UserLoginView(LoginView):
         return context
 
 
+# TODO strings config
 class UserRegistrationView(CreateView):
     template_name = 'users/registration.html'
     form_class = UserRegistrationForm
@@ -73,39 +75,51 @@ class UserRegistrationView(CreateView):
         return context
 
 
-@login_required
-def profile(request):
-    if request.method == 'POST':
-        form = ProfileForm(data=request.POST, instance=request.user, files=request.FILES)
-        if form.is_valid():
-            form.save()
-            messages.success(request, "Изменения успешно сохранены!")
-            return HttpResponseRedirect(reverse('user:profile'))
-    else:
-        form = ProfileForm(instance=request.user)
+# TODO strings config
+class UserProfileView(LoginRequiredMixin, UpdateView):
+    template_name = 'users/profile.html'
+    form_class = ProfileForm
+    success_url = reverse_lazy('users:profile')
 
-    orders = (
-        Order.objects.filter(user=request.user).prefetch_related(
-            Prefetch(
-                'orderitem_set',
-                queryset=OrderItem.objects.select_related('product')
+    def get_object(self, queryset=None):
+        return self.request.user
+
+    def form_valid(self, form):
+        messages.success(self.request, "Профиль успешно обновлен!")
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        messages.error(self.request, "Произошла ошибка")
+        return super().form_invalid(form)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Home - Кабинет'
+        context['orders'] = (
+            Order.objects.filter(user=self.request.user).prefetch_related
+                (
+                Prefetch(
+                    'orderitem_set',
+                    queryset=OrderItem.objects.select_related('product')
+                )
             )
+            .order_by('-id')
         )
-        .order_by('-id')
-    )
-
-    context = {
-        'title': 'Home - Личный кабинет',
-        'form': form,
-        'orders': orders
-    }
-    return render(request, 'users/profile.html', context)
+        return context
 
 
-def users_cart(request):
-    return render(request, 'users/users-cart.html')
+# TODO strings config
+class UsersCartView(TemplateView):
+    template_name = 'users/users-cart.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Home - Корзина'
+
+        return context
 
 
+# TODO strings config
 @login_required
 def logout(request):
     messages.success(request, "Вы вышли из аккаунта.")
