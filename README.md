@@ -28,9 +28,9 @@ README Language
 - **Python**
 - **Django**
 - **PostgreSQL**
+- **Redis**
 - **Docker**
 - ~~SQLite~~
-- Redis *(coming soon)*
 - Bootstrap
 - Jquery
 
@@ -123,9 +123,9 @@ README Language
 - **Python**
 - **Django**
 - **PostgreSQL**
+- **Redis**
 - **Docker**
 - ~~SQLite~~
-- Redis *(скоро)*
 - Bootstrap
 - Jquery
 

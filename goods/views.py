@@ -2,12 +2,13 @@ from django.http import Http404
 from django.shortcuts import get_list_or_404
 from django.views.generic import DetailView, ListView
 
+from common.mixins import CacheMixin
 from goods.models import Products, Categories
 from goods.utils import query_search
 
 
 # TODO strings config
-class CatalogView(ListView):
+class CatalogView(CacheMixin, ListView):
     model = Products
     # queryset = Products.objects.all().order_by("-id")
     template_name = "goods/catalog.html"
@@ -24,18 +25,23 @@ class CatalogView(ListView):
 
         if category_slug == "all":
             goods = super().get_queryset()
+
         elif query:
             goods = query_search(query)
         else:
             goods = super().get_queryset().filter(category__slug=category_slug)
+
             if not goods.exists():
                 raise Http404()
 
-        if on_sale:
-            goods = goods.filter(discount__gt=0)
+        if not on_sale and order_by == 'default':
+            goods = self.set_get_cache(goods, f"goods_{category_slug}", 60)
+        else:
+            if on_sale:
+                goods = goods.filter(discount__gt=0)
 
-        if order_by and order_by != "default":
-            goods = goods.order_by(order_by)
+            if order_by and order_by != "default":
+                goods = goods.order_by(order_by)
 
         return goods
 
