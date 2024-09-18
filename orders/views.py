@@ -1,10 +1,10 @@
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.forms import ValidationError
 from django.db import transaction
-from django.shortcuts import render, redirect
+from django.forms import ValidationError
+from django.shortcuts import redirect
 from django.urls import reverse_lazy
+from django.utils.translation import gettext_lazy as _
 from django.views.generic import FormView
 
 from carts.models import Cart
@@ -46,8 +46,11 @@ class CreateOrderView(LoginRequiredMixin, FormView):
                         quantity = cart_item.quantity
 
                         if product.quantity < quantity:
-                            raise ValidationError(f'Недостаточное количество товара {name} на складе\
-                                                   В наличии - {product.quantity}')
+                            raise ValidationError(_('Insufficient quantity of {name} in stock. In stock - {quantity}')
+                            .format(
+                                name=name,
+                                quantity=product.quantity
+                            ))
 
                         OrderItem.objects.create(
                             order=order,
@@ -62,18 +65,18 @@ class CreateOrderView(LoginRequiredMixin, FormView):
                     # Clear cart after order creating
                     cart_items.delete()
 
-                    messages.success(self.request, 'Заказ оформлен!')
+                    messages.success(self.request, _('Order created!'))
                     return redirect('user:profile')
         except ValidationError as e:
             messages.success(self.request, str(e))
         return redirect('orders:create_order')
 
     def form_invalid(self, form):
-        messages.error(self.request, 'Заполните все обязательные поля!')
+        messages.error(self.request, _('Fill in all required fields!'))
         return redirect('orders:create_order')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Оформление заказа'
+        context['title'] = _('Order creation')
         context['order'] = True
         return context

@@ -1,10 +1,9 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 from goods.models import Products
 from users.models import User
 
-
-# Create your models here.
 
 class CartQuerrySet(models.QuerySet):
 
@@ -17,18 +16,18 @@ class CartQuerrySet(models.QuerySet):
 
         return 0
 
-# TODO strings config
+
 class Cart(models.Model):
-    user = models.ForeignKey(to=User, on_delete=models.CASCADE, blank=True, null=True, verbose_name='Пользователь')
-    product = models.ForeignKey(to=Products, on_delete=models.CASCADE, verbose_name='Товар')
-    quantity = models.PositiveSmallIntegerField(default=0, verbose_name='Количество')
+    user = models.ForeignKey(to=User, on_delete=models.CASCADE, blank=True, null=True, verbose_name=_('User'))
+    product = models.ForeignKey(to=Products, on_delete=models.CASCADE, verbose_name=_('Product'))
+    quantity = models.PositiveSmallIntegerField(default=0, verbose_name=_('Quantity'))
     session_key = models.CharField(max_length=32, null=True, blank=True)
-    created_timestamp = models.DateTimeField(auto_now_add=True, verbose_name='Дата добавления')
+    created_timestamp = models.DateTimeField(auto_now_add=True, verbose_name=_('Date added'))
 
     class Meta:
         db_table = 'cart'
-        verbose_name = 'Корзина'
-        verbose_name_plural = 'Корзина'
+        verbose_name = _('Cart')
+        verbose_name_plural = _('Carts')
 
     objects = CartQuerrySet().as_manager()
 
@@ -37,6 +36,13 @@ class Cart(models.Model):
 
     def __str__(self):
         if self.user:
-            return f" Корзина {self.user.username} | Товар {self.product.name} | Кол-во {self.quantity}"
+            return _("Cart {user} | Product {product} | Quantity {quantity}").format(
+                user=self.user.username,
+                product=self.product.name,
+                quantity=self.quantity
+            )
 
-        return f" Анонимная корзина | Товар {self.product.name} | Кол-во {self.quantity}"
+        return _("Anonymous cart | Product {product} | Quantity {quantity}").format(
+            product=self.product.name,
+            quantity=self.quantity
+        )

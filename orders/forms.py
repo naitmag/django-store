@@ -1,6 +1,7 @@
 import re
 
 from django import forms
+from django.utils.translation import gettext_lazy as _
 
 
 class CreateOrderForm(forms.Form):
@@ -22,10 +23,10 @@ class CreateOrderForm(forms.Form):
         data = data.translate(table)
 
         if not data.isdigit():
-            raise forms.ValidationError('Номер телефона должен содержать только цифры')
+            raise forms.ValidationError(_('The phone number must contain only digits'))
 
         pattern = re.compile(r'^\d{10}$')
         if not pattern.match(data):
-            raise forms.ValidationError('Неверный формат номера')
+            raise forms.ValidationError(_('Incorrect phone number format'))
 
         return data

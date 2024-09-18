@@ -1,8 +1,8 @@
 from django.apps import AppConfig
+from django.utils.translation import gettext_lazy as _
 
 
-# TODO strings config
 class GoodsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'goods'
-    verbose_name = 'товары'
+    verbose_name = _('Goods')

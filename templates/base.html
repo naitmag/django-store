@@ -1,6 +1,7 @@
 {% load static %}
 {% load cache %}
 {% load goods_tags %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,14 +69,14 @@
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
-                                <li><a class="dropdown-item  text-white" href="{% url "user:logout"%}">Выйти</a></li>
+                                <li><a class="dropdown-item  text-white" href="{% url "user:logout"%}">{% trans 'Logout' %}</a></li>
                             </ul>
                         </li>
                         {% endif %}
                     </ul>
                     <form class="d-flex" role="search" action="{% url "catalog:search"%}" method="get">
                         <input class="form-control me-2" type="search" name="q" placeholder="Введите запрос" aria-label="Search" {%if request.GET.q%} value="{{request.GET.q}}" {% endif %}>
-                        <button class="btn btn-outline-success text-white" type="submit">Поиск</button>
+                        <button class="btn btn-outline-success text-white" type="submit">{% trans 'Search' %}</button>
                     </form>
                 </div>
             </div>

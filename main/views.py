@@ -1,15 +1,16 @@
 from django.views.generic import TemplateView
+from django.utils.translation import gettext_lazy as _
 
 
-# TODO strings config
 class IndexView(TemplateView):
     template_name = 'main/index.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Home - Главная'
-        context['content'] = 'Магазин мебели HOME'
+        context['title'] = _('Home - Main')
+        context['content'] = _('Furniture store HOME')
         return context
+
 
 # TODO strings config
 class AboutView(TemplateView):
@@ -17,16 +18,8 @@ class AboutView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Home - О нас'
-        context['content'] = 'О нас'
-        context['text_on_page'] = 'Это текст про наш магазин'
+        context['title'] = _('Home - About us')
+        context['content'] = _('About us')
+        context['text_on_page'] = _('Some text here')
         return context
 
-# def about(request: HttpRequest) -> HttpRequest:
-#     context = {
-#         'title': 'Home - О нас',
-#         'content': 'О нас',
-#         'text_on_page': 'Это текст про наш магазин'
-#     }
-#
-#     return render(request, 'main/about.html', context)

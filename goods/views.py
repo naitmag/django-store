@@ -1,5 +1,5 @@
 from django.http import Http404
-from django.shortcuts import get_list_or_404
+from django.utils.translation import gettext_lazy as _
 from django.views.generic import DetailView, ListView
 
 from common.mixins import CacheMixin
@@ -7,10 +7,8 @@ from goods.models import Products, Categories
 from goods.utils import query_search
 
 
-# TODO strings config
 class CatalogView(CacheMixin, ListView):
     model = Products
-    # queryset = Products.objects.all().order_by("-id")
     template_name = "goods/catalog.html"
     context_object_name = "goods"
     paginate_by = 3
@@ -47,15 +45,13 @@ class CatalogView(CacheMixin, ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["title"] = "Home - Каталог"
+        context["title"] = _('Home - Catalog')
         context["slug_url"] = self.kwargs.get(self.slug_url_kwarg)
         context["categories"] = Categories.objects.all()
         return context
 
 
 class ProductView(DetailView):
-    # model = Products
-    # slug_field = "slug"
     template_name = 'goods/product.html'
     slug_url_kwarg = 'product_slug'
     context_object_name = 'product'

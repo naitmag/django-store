@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.translation import gettext_lazy as _
 
 from carts.models import Cart
 
@@ -11,7 +12,6 @@ class CartTabAdmin(admin.TabularInline):
     extra = 1
 
 
-# TODO strings config
 @admin.register(Cart)
 class CartAdmin(admin.ModelAdmin):
     list_display = ['user_display', 'product_display', 'quantity', 'created_timestamp']
@@ -21,7 +21,7 @@ class CartAdmin(admin.ModelAdmin):
     def user_display(obj):
         if obj.user:
             return str(obj.user)
-        return "Анонимный пользователь"
+        return _("Anonymous user")
 
     @staticmethod
     def product_display(obj):

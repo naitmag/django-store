@@ -1,0 +1,309 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-18 17:32+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\carts\admin.py:24
+msgid "Anonymous user"
+msgstr ""
+
+#: .\carts\apps.py:8 .\carts\models.py:30
+msgid "Carts"
+msgstr ""
+
+#: .\carts\models.py:21 .\orders\models.py:20
+msgid "User"
+msgstr ""
+
+#: .\carts\models.py:22 .\goods\models.py:31 .\orders\models.py:46
+msgid "Product"
+msgstr ""
+
+#: .\carts\models.py:23 .\goods\models.py:26 .\orders\models.py:49
+msgid "Quantity"
+msgstr ""
+
+#: .\carts\models.py:25
+msgid "Date added"
+msgstr ""
+
+#: .\carts\models.py:29
+msgid "Cart"
+msgstr ""
+
+#: .\carts\models.py:39
+#, python-brace-format
+msgid "Cart {user} | Product {product} | Quantity {quantity}"
+msgstr ""
+
+#: .\carts\models.py:45
+#, python-brace-format
+msgid "Anonymous cart | Product {product} | Quantity {quantity}"
+msgstr ""
+
+#: .\carts\templates\carts\includes\included_cart.html:61
+#: .\orders\templates\orders\create_order.html:93
+msgid "Create order"
+msgstr ""
+
+#: .\carts\views.py:28
+msgid "Item added to cart"
+msgstr ""
+
+#: .\carts\views.py:47
+msgid "Quantity changed"
+msgstr ""
+
+#: .\carts\views.py:64
+msgid "Item removed from cart"
+msgstr ""
+
+#: .\goods\apps.py:8
+msgid "Goods"
+msgstr ""
+
+#: .\goods\models.py:7 .\goods\models.py:20 .\orders\models.py:47
+msgid "Name"
+msgstr ""
+
+#: .\goods\models.py:12 .\goods\models.py:27
+msgid "Category"
+msgstr ""
+
+#: .\goods\models.py:13
+msgid "Categories"
+msgstr ""
+
+#: .\goods\models.py:22
+msgid "Description"
+msgstr ""
+
+#: .\goods\models.py:23
+msgid "Image"
+msgstr ""
+
+#: .\goods\models.py:24 .\goods\templates\goods\product.html:43
+#: .\orders\models.py:48
+msgid "Price"
+msgstr ""
+
+#: .\goods\models.py:25
+msgid "Sale"
+msgstr ""
+
+#: .\goods\models.py:32
+msgid "Products"
+msgstr ""
+
+#: .\goods\templates\goods\catalog.html:27
+msgid "On sale"
+msgstr ""
+
+#: .\goods\templates\goods\catalog.html:30
+msgid "Sort"
+msgstr ""
+
+#: .\goods\templates\goods\catalog.html:35
+msgid "Default"
+msgstr ""
+
+#: .\goods\templates\goods\catalog.html:42
+msgid "From cheap to expensive"
+msgstr ""
+
+#: .\goods\templates\goods\catalog.html:49
+msgid "From expensive to cheap"
+msgstr ""
+
+#: .\goods\templates\goods\catalog.html:57
+msgid "Search results by request"
+msgstr ""
+
+#: .\goods\templates\goods\catalog.html:60
+msgid "Nothing found on this request"
+msgstr ""
+
+#: .\goods\templates\goods\product.html:29
+msgid "Close"
+msgstr ""
+
+#: .\goods\templates\goods\product.html:49
+msgid "Add to cart"
+msgstr ""
+
+#: .\goods\views.py:48
+msgid "Home - Catalog"
+msgstr ""
+
+#: .\main\views.py:10
+msgid "Home - Main"
+msgstr ""
+
+#: .\main\views.py:11
+msgid "Furniture store HOME"
+msgstr ""
+
+#: .\main\views.py:21
+msgid "Home - About us"
+msgstr ""
+
+#: .\main\views.py:22
+msgid "About us"
+msgstr ""
+
+#: .\main\views.py:23
+msgid "Some text here"
+msgstr ""
+
+#: .\orders\apps.py:8 .\orders\models.py:33
+msgid "Orders"
+msgstr ""
+
+#: .\orders\forms.py:26
+msgid "The phone number must contain only digits"
+msgstr ""
+
+#: .\orders\forms.py:30
+msgid "Incorrect phone number format"
+msgstr ""
+
+#: .\orders\models.py:22
+msgid "Order creation date"
+msgstr ""
+
+#: .\orders\models.py:23 .\orders\templates\orders\create_order.html:45
+msgid "Phone number"
+msgstr ""
+
+#: .\orders\models.py:24 .\orders\templates\orders\create_order.html:59
+msgid "Delivery required"
+msgstr ""
+
+#: .\orders\models.py:25 .\orders\templates\orders\create_order.html:68
+msgid "Delivery address"
+msgstr ""
+
+#: .\orders\models.py:26
+msgid "Payment on receipt"
+msgstr ""
+
+#: .\orders\models.py:27
+msgid "Paid"
+msgstr ""
+
+#: .\orders\models.py:28
+msgid "In processing"
+msgstr ""
+
+#: .\orders\models.py:28
+msgid "Order status"
+msgstr ""
+
+#: .\orders\models.py:32 .\orders\models.py:44
+msgid "Order"
+msgstr ""
+
+#: .\orders\models.py:36
+#, python-brace-format
+msgid "Order № {order} | Customer {customer_name} {customer_last_name}"
+msgstr ""
+
+#: .\orders\models.py:50
+msgid "Date of sale"
+msgstr ""
+
+#: .\orders\models.py:54
+msgid "Order item"
+msgstr ""
+
+#: .\orders\models.py:55
+msgid "Order items"
+msgstr ""
+
+#: .\orders\models.py:63
+#, python-brace-format
+msgid "Item {name} | Order № {order}"
+msgstr ""
+
+#: .\orders\templates\orders\create_order.html:9
+msgid "Selected items"
+msgstr ""
+
+#: .\orders\templates\orders\create_order.html:20
+msgid "Order details"
+msgstr ""
+
+#: .\orders\templates\orders\create_order.html:27
+msgid "First name"
+msgstr ""
+
+#: .\orders\templates\orders\create_order.html:36
+msgid "Last name"
+msgstr ""
+
+#: .\orders\templates\orders\create_order.html:55
+msgid "Delivery method"
+msgstr ""
+
+#: .\orders\templates\orders\create_order.html:64
+msgid "Self-delivery"
+msgstr ""
+
+#: .\orders\templates\orders\create_order.html:77
+msgid "Payment method"
+msgstr ""
+
+#: .\orders\templates\orders\create_order.html:81
+msgid "Card payment"
+msgstr ""
+
+#: .\orders\templates\orders\create_order.html:86
+msgid "Cash/card on receipt"
+msgstr ""
+
+#: .\orders\views.py:49
+#, python-brace-format
+msgid "Insufficient quantity of {name} in stock. In stock - {quantity}"
+msgstr ""
+
+#: .\orders\views.py:68
+msgid "Order created!"
+msgstr ""
+
+#: .\orders\views.py:75
+msgid "Fill in all required fields!"
+msgstr ""
+
+#: .\orders\views.py:80
+msgid "Order creation"
+msgstr ""
+
+#: .\store\settings.py:135
+msgid "English"
+msgstr ""
+
+#: .\store\settings.py:136
+msgid "Russian"
+msgstr ""
+
+#: .\templates\base.html:72
+msgid "Logout"
+msgstr ""
+
+#: .\templates\base.html:79
+msgid "Search"
+msgstr ""
